@@ -1,0 +1,36 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import Marquee from '../components/Marquee.astro';
+import PricingApp from '../components/PricingApp';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="Precios 2026 | Excavaciones Moreno">
+  <Hero />
+  <Marquee />
+
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
+    <PricingApp client:load />
+  </main>
+
+  <Footer />
+
+  <!-- Blur-fade scroll reveal -->
+  <script>
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      },
+      { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
+    );
+
+    document.querySelectorAll('.blur-reveal').forEach((el) => {
+      observer.observe(el);
+    });
+  </script>
+</Layout>

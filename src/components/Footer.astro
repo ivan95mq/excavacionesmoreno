@@ -1,0 +1,80 @@
+---
+const base = import.meta.env.BASE_URL;
+---
+
+<footer class="bg-excavation-surface/30 border-t border-white/5 mt-24">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 py-10 sm:py-16">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-12">
+      <!-- Brand -->
+      <div>
+        <img src={`${base}/logo-wide.webp`} alt="Excavaciones Moreno" class="w-52 h-auto mb-4" />
+        <p class="font-body text-white/70 mt-3 text-sm leading-relaxed">
+          Construyendo futuro con responsabilidad y precisión.
+          Áridos, maquinaria y transportes en Mérida y toda Extremadura.
+        </p>
+        <p class="text-xs text-white/40 mt-3">
+          320+ proyectos completados
+        </p>
+      </div>
+
+      <!-- Contact -->
+      <div>
+        <h4 class="font-heading text-sm tracking-widest uppercase text-excavation-red mb-4">Contacto</h4>
+        <ul class="space-y-3 text-sm text-white/70">
+          <li class="flex items-center gap-2">
+            <svg class="w-4 h-4 text-excavation-gold/50 shrink-0" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
+            </svg>
+            <a href="tel:+34669788392" class="hover:text-excavation-gold transition-colors">669 788 392</a>
+            <span class="text-white/30">·</span>
+            <a href="tel:+34625309277" class="hover:text-excavation-gold transition-colors">625 309 277</a>
+          </li>
+          <li class="flex items-center gap-2">
+            <svg class="w-4 h-4 text-excavation-gold/50 shrink-0" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/>
+              <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/>
+            </svg>
+            <a href="mailto:admin@excavacionesmoreno.es" class="hover:text-excavation-gold transition-colors">
+              admin@excavacionesmoreno.es
+            </a>
+          </li>
+          <li class="flex items-start gap-2">
+            <svg class="w-4 h-4 text-excavation-gold/50 shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/>
+            </svg>
+            Camino Viejo de Mirandilla S/N<br/>06800 Mérida (Badajoz)
+          </li>
+        </ul>
+      </div>
+
+      <!-- Web + Info -->
+      <div>
+        <h4 class="font-heading text-sm tracking-widest uppercase text-excavation-red mb-4">Web</h4>
+        <ul class="space-y-3 text-sm text-white/70">
+          <li>
+            <a href="https://excavacionesmoreno.es" target="_blank" rel="noopener" class="inline-flex items-center gap-1.5 text-excavation-gold hover:text-white transition-colors">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+              </svg>
+              excavacionesmoreno.es
+            </a>
+          </li>
+          <li class="pt-2 text-xs text-white/40">
+            Precios sin IVA. Pueden variar según distancia y complejidad del trabajo.
+            Válidos desde enero 2026.
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Bottom bar -->
+    <div class="border-t border-white/5 mt-12 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <p class="text-xs text-white/40">
+        &copy; 2026 Excavaciones Moreno. Todos los derechos reservados.
+      </p>
+      <p class="text-xs text-white/50">
+        Desarrollado por <a href="https://solwed.es" target="_blank" class="text-excavation-red hover:text-excavation-gold transition-colors font-semibold">SOLWED.ES</a> ✌️
+      </p>
+    </div>
+  </div>
+</footer>

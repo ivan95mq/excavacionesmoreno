@@ -1,0 +1,200 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ═══════════════════════════════════════════
+   MAGIC UI EFFECTS — Excavaciones Moreno
+   Brand: Red #D94432 + Gold #F0A830
+   ═══════════════════════════════════════════ */
+
+/* Shimmer border on hover */
+@property --shimmer-angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+
+.shimmer-border {
+  position: relative;
+  overflow: visible;
+}
+
+.shimmer-border::after {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  background: linear-gradient(90deg, transparent 20%, #F0A830 40%, #D94432 55%, transparent 80%);
+  background-size: 300% 100%;
+  animation: shimmer 2.5s ease-in-out infinite;
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  -webkit-mask-composite: xor;
+  padding: 1.5px;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.shimmer-border:hover::after {
+  opacity: 1;
+}
+
+/* Grain texture overlay */
+.grain-overlay::before {
+  content: '';
+  position: fixed;
+  inset: -50%;
+  width: 200%;
+  height: 200%;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  opacity: 0.025;
+  pointer-events: none;
+  z-index: 9999;
+  animation: grain 8s steps(10) infinite;
+}
+
+/* Dust particles */
+.dust-particle {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  background: #F0A830;
+  border-radius: 50%;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Diagonal stripes pattern — using brand red */
+.diagonal-stripes {
+  background-image: repeating-linear-gradient(
+    -45deg,
+    transparent,
+    transparent 10px,
+    rgba(217, 68, 50, 0.035) 10px,
+    rgba(217, 68, 50, 0.035) 20px
+  );
+}
+
+/* Glow effects */
+.glow-red {
+  box-shadow: 0 0 30px rgba(217, 68, 50, 0.15), 0 0 60px rgba(217, 68, 50, 0.05);
+}
+.glow-gold {
+  box-shadow: 0 0 30px rgba(240, 168, 48, 0.15), 0 0 60px rgba(240, 168, 48, 0.05);
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0C0C0C;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #D94432;
+}
+
+/* Selection color — brand red */
+::selection {
+  background: rgba(217, 68, 50, 0.3);
+  color: #fff;
+}
+
+/* Category color accents */
+.cat-accent-aridos { border-color: #F0A830; }
+.cat-accent-maquinaria { border-color: #D94432; }
+.cat-accent-transportes { border-color: #22C55E; }
+
+.cat-bg-aridos { background-color: rgba(240, 168, 48, 0.1); }
+.cat-bg-maquinaria { background-color: rgba(217, 68, 50, 0.1); }
+.cat-bg-transportes { background-color: rgba(34, 197, 94, 0.1); }
+
+.cat-text-aridos { color: #F0A830; }
+.cat-text-maquinaria { color: #E8665A; }
+.cat-text-transportes { color: #22C55E; }
+
+/* Hero particles */
+.hero-particles {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.hero-particles span {
+  position: absolute;
+  display: block;
+  width: var(--size, 4px);
+  height: var(--size, 4px);
+  background: var(--color, rgba(240, 168, 48, 0.3));
+  border-radius: 50%;
+  animation: dust var(--duration, 12s) linear var(--delay, 0s) infinite;
+  left: var(--x, 50%);
+}
+
+/* Blur reveal for scroll animations */
+.blur-reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  filter: blur(6px);
+  transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.blur-reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0);
+}
+
+/* Cart drawer backdrop */
+.cart-backdrop {
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+/* Quantity input styling */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+/* Hide scrollbar for horizontal scroll areas */
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-none {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Safe area for notched devices */
+@supports (padding: env(safe-area-inset-bottom)) {
+  .safe-bottom {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+}
+
+/* Whatsapp button gradient */
+.whatsapp-gradient {
+  background: linear-gradient(135deg, #25D366, #128C7E);
+}
+
+.whatsapp-gradient:hover {
+  background: linear-gradient(135deg, #2EE370, #159E8E);
+}
